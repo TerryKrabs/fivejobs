@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './styles.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AkrayaComponent from './components/Pages/AkrayaComponent';
+import ClearanceComponent from './components/Pages/ClearanceComponent';
+import InsightComponent from './components/Pages/InsightComponent';
+import SpatialComponent from './components/Pages/SpatialComponent';
+import TataComponent from './components/Pages/TataComponent';
+import NavbarComponent from './components/NavbarComponent';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+    <NavbarComponent />
+    <Routes>
+    <Route path='/' element={<AkrayaComponent />}/>
+    <Route path='/Clearance' element={<ClearanceComponent />}/>
+      <Route path='/Insight' element={<InsightComponent />}/>
+      <Route path='/Spatial' element={<SpatialComponent />}/>
+      <Route path='/Tata' element={<TataComponent />}/>
+    </Routes> 
+  </BrowserRouter>
+
   );
 }
 
